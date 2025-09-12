@@ -1,11 +1,41 @@
+
 const express = require('express');
 const db = require('./db');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+// Serve static files from the public directory (absolute path with logging)
+const publicDir = path.resolve(__dirname, '..', 'public');
+console.log('Serving static files from:', publicDir);
+app.use(express.static(publicDir));
+
+// Redirect root to login.html (correct path)
+app.get('/', (req, res) => {
+    const loginPath = path.join(__dirname, '..', 'public', 'login.html');
+    console.log('Serving login.html from:', loginPath);
+    res.sendFile(loginPath, (err) => {
+        if (err) {
+            console.error('Error sending login.html:', err);
+            res.status(500).send('Error loading login page');
+        }
+    });
+});
+
+// Test route to serve login.html directly
+app.get('/test-login', (req, res) => {
+    const loginPath = path.join(__dirname, '..', 'public', 'login.html');
+    res.sendFile(loginPath, (err) => {
+        if (err) {
+            console.error('Error sending login.html:', err);
+            res.status(500).send('Error loading login page');
+        }
+    });
+});
 
 // Signup endpoint
 app.post('/api/signup', async (req, res) => {
