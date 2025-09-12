@@ -1,234 +1,228 @@
-/* Google font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-    color: black;
-    box-sizing: border-box;
-}
-
-.dflex {
-    display: flex;
-}
-
-/* Signup link/button styles for login page */
-.signup-link {
-    margin-top: 24px;
-    text-align: center;
-}
-.signup-link p {
-    margin-bottom: 10px;
-    color: #333;
-    font-size: 1rem;
-}
-.signup-btn {
-    background: #fff;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    border-radius: 8px;
-    padding: 10px 32px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-}
-.signup-btn:hover {
-    background: var(--primary-color);
-    color: #fff;
-}
-
-/* =============================
-   Charming Login/Signup Styles
-   ============================= */
-/* Container for login and signup forms */
-.login-container {
-    max-width: 420px;
-    margin: 8vh auto;
-    padding: 48px 36px 36px 36px;
-    background: linear-gradient(135deg, #FFF3E3 60%, #FCF8F3 100%);
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(184, 142, 47, 0.12);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-.login-container h2 {
-    color: var(--primary-color);
-    margin-bottom: 28px;
-    font-size: 2.2rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-shadow: 0 2px 8px #f9e6c7;
-}
-.login-container label {
-    display: block;
-    text-align: left;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #b88e2f;
-    font-size: 1.05rem;
-}
-.login-container input[type="text"],
-.login-container input[type="password"],
-.login-container input[type="email"],
-.login-container input[type="number"],
-.login-container input[type="date"] {
-    width: 100%;
-    padding: 13px 14px;
-    margin-bottom: 18px;
-    border: 1.5px solid #e2cfa3;
-    border-radius: 10px;
-    font-size: 1.08rem;
-    background: #fff;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    box-shadow: 0 1px 4px rgba(184, 142, 47, 0.05);
-}
-.login-container input:focus {
-    border-color: var(--primary-color);
-    outline: none;
-    box-shadow: 0 0 0 2px #ffe6b3;
-}
-.login-container button {
-    width: 100%;
-    padding: 13px;
-    background: var(--primary-color);
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.15rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.2s, box-shadow 0.2s;
-    margin-top: 10px;
-    box-shadow: 0 2px 8px rgba(184, 142, 47, 0.08);
-}
-.login-container button:hover {
-    background: #a0761c;
-    box-shadow: 0 4px 16px rgba(184, 142, 47, 0.15);
-}
-#loginMessage, #signupMessage {
-    margin-top: 18px;
-    color: #d32f2f;
-    font-weight: 500;
-    min-height: 24px;
-    font-size: 1.05rem;
-}
-.signup-link {
-    margin-top: 28px;
-    text-align: center;
-}
-.signup-link p {
-    margin-bottom: 10px;
-    color: #b88e2f;
-    font-size: 1.08rem;
-    font-weight: 500;
-}
-.signup-btn {
-    background: #fff;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    border-radius: 10px;
-    padding: 10px 32px;
-    font-size: 1.08rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-    box-shadow: 0 1px 4px rgba(184, 142, 47, 0.07);
-}
-.signup-btn:hover {
-    background: var(--primary-color);
-    color: #fff;
-    box-shadow: 0 2px 8px rgba(184, 142, 47, 0.13);
-}
-/* End charming login/signup styles */
-
-/* =============================
-     Responsive Login/Signup Styles
-     ============================= */
-@media (max-width: 600px) {
-    .login-container {
-        max-width: 98vw;
-        padding: 28px 8vw 24px 8vw;
-        border-radius: 12px;
-        margin: 6vh auto;
-    }
-    .login-container h2 {
-        font-size: 1.5rem;
-        margin-bottom: 18px;
-    }
-    .login-container label {
-        font-size: 0.98rem;
-    }
-    .login-container input[type="text"],
-    .login-container input[type="password"],
-    .login-container input[type="email"],
-    .login-container input[type="number"],
-    .login-container input[type="date"] {
-        font-size: 0.98rem;
-        padding: 10px 10px;
-        margin-bottom: 14px;
-        border-radius: 7px;
-    }
-    .login-container button {
-        font-size: 1rem;
-        padding: 10px;
-        border-radius: 7px;
-    }
-    .signup-link {
-        margin-top: 18px;
-    }
-    .signup-btn {
-        font-size: 1rem;
-        padding: 8px 18px;
-        border-radius: 7px;
-    }
-}
-
-@media (max-width: 400px) {
-    .login-container {
-        padding: 12px 2vw 12px 2vw;
-        border-radius: 7px;
-    }
-    .login-container h2 {
-        font-size: 1.1rem;
-    }
-    .login-container label {
-        font-size: 0.9rem;
-    }
-    .login-container input[type="text"],
-    .login-container input[type="password"],
-    .login-container input[type="email"],
-    .login-container input[type="number"],
-    .login-container input[type="date"] {
-        font-size: 0.9rem;
-        padding: 7px 7px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-    }
-    .login-container button {
-        font-size: 0.95rem;
-        padding: 7px;
-        border-radius: 5px;
-    }
-    .signup-link {
-        margin-top: 10px;
-    }
-    .signup-btn {
-        font-size: 0.95rem;
-        padding: 6px 10px;
-        border-radius: 5px;
-    }
-}
-/* End responsive login/signup styles */
-
 :root {
     --primary-color: #B88E2F;
     --secolor: #FFF3E3;
     --thcolor: #FCF8F3;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*Login page*/
+.loginpagedesign {
+    display: grid;
+    height: 100vh;
+    place-items: center;
+    background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+}
+.loginpagedesign label{
+    margin: 0;
+}
+::selection {
+    background: #1a75ff;
+    color: #fff;
+}
+
+.wrapper {
+    overflow: hidden;
+    max-width: 390px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .title-text {
+    display: flex;
+    width: 200%;
+}
+
+.wrapper .title {
+    width: 50%;
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .slide-controls {
+    position: relative;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+    margin: 30px 0 10px 0;
+    justify-content: space-between;
+    border: 1px solid lightgrey;
+    border-radius: 15px;
+}
+
+.slide-controls .slide {
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 48px;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.6s ease;
+
+}
+
+.slide-controls label.signup {
+    color: #000;
+}
+
+.slide-controls .slider-tab {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 0;
+    z-index: 0;
+    border-radius: 15px;
+    background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+#signup:checked~.slider-tab {
+    left: 50%;
+}
+
+#signup:checked~label.signup {
+    color: #fff;
+    cursor: default;
+    user-select: none;
+}
+
+#signup:checked~label.login {
+    color: #000;
+}
+
+#login:checked~label.signup {
+    color: #000;
+}
+
+#login:checked~label.login {
+    cursor: default;
+    user-select: none;
+}
+
+.wrapper .form-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.form-container .form-inner {
+    display: flex;
+    width: 200%;
+}
+
+.form-container .form-inner form {
+    width: 50%;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-inner form .field {
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.form-inner form .field input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 15px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+}
+
+.form-inner form .field input:focus {
+    border-color: #1a75ff;
+}
+
+.form-inner form .field input::placeholder {
+    color: #999;
+    transition: all 0.3s ease;
+}
+
+form .field input:focus::placeholder {
+    color: #1a75ff;
+}
+
+.form-inner form .pass-link {
+    margin-top: 5px;
+}
+
+.form-inner form .signup-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.form-inner form .pass-link a,
+.form-inner form .signup-link a {
+    color: #1a75ff;
+    text-decoration: none;
+}
+
+.form-inner form .pass-link a:hover,
+.form-inner form .signup-link a:hover {
+    text-decoration: underline;
+}
+
+form .btn {
+    height: 50px;
+    width: 100%;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+form .btn .btn-layer {
+    height: 100%;
+    width: 300%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: -webkit-linear-gradient(right, #003366, #004080, #0059b3, #0073e6);
+    border-radius: 15px;
+    transition: all 0.4s ease;
+}
+
+form .btn:hover .btn-layer {
+    left: 0;
+}
+
+form .btn input[type="submit"] {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    background: none;
+    border: none;
+    color: #fff;
+    padding-left: 0;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* header */
 ul {
     list-style: none;
 }
@@ -236,8 +230,6 @@ ul {
 ul li a {
     text-decoration: none;
 }
-
-/* header */
 .headsec {
     padding: 10px 0px;
     align-items: center;
@@ -250,9 +242,11 @@ ul li a {
     transition: all 0.5s ease-in-out;
 
 }
-.responsive_menu{
+
+.responsive_menu {
     display: none;
 }
+
 .responsive_menu i {
     color: black;
     font-size: 40px;
@@ -367,9 +361,11 @@ ul li a {
     display: grid;
     grid-template-columns: auto auto auto auto;
 }
-button a{
+
+button a {
     text-decoration: none !important;
 }
+
 .productsec h2 {
     text-align: center;
     margin-bottom: 20px;
@@ -1326,10 +1322,3 @@ label {
 .moreproduct {
     border-top: 1px solid #c8bebe;
 }
-
-
-
-
-
-
-
