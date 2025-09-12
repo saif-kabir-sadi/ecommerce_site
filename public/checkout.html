@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/Meubel House_Logos-05.png" type="image/x-icon">
+    <!-- Font Awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <title>Furniro</title>
+</head>
+
+<body>
+    <header>
+        <div class="headsec dflex">
+            <div class="h-iconsec dflex">
+                <img src="img/Meubel House_Logos-05.png" alt="logo">
+                <p>Furniro</p>
+            </div>
+            <div class="h-shortsec  ">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="h-righticonsec">
+                <ul>
+                    <li><a href=""><i class="fa-regular fa-user"></i></a></li>
+                    <li><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                    <li><a href=""><i class="fa-regular fa-heart"></i></a></li>
+                    <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                </ul>
+            </div>
+            <div class="responsive_menu"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </header>
+    
+    <!-- shop hero section  -->
+    <div class="shophero">
+        <img src="img/Meubel House_Logos-05.png" alt="">
+        <h2>Checkout</h2>
+        <p>Home<i class="fa-solid fa-angle-right"></i> Checkout</p>
+    </div>
+
+    <!-- Checkout section  -->
+    <div class="checkout dflex">
+        <div class="billing-container">
+            <h2>Billing details</h2>
+            <form>
+                <div class="name-fields">
+                    <div class="name-field-elem">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                    <div class="name-field-elem">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" name="last-name" required>
+                    </div>
+                </div>
+
+                <label for="company">Company Name (Optional)</label>
+                <input type="text" id="company" name="company">
+
+                <label for="country">Country / Region</label>
+                <select id="country" name="country">
+                    <option value="Sri Lanka" selected>Sri Lanka</option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                </select>
+
+                <label for="street-address">Street address</label>
+                <input type="text" id="street-address" name="street-address" required>
+
+                <label for="city">Town / City</label>
+                <input type="text" id="city" name="city" required>
+
+                <label for="province">Province</label>
+                <select id="province" name="province">
+                    <option value="Western Province" selected>Western Province</option>
+                    <option value="Central Province">Central Province</option>
+                    <option value="Southern Province">Southern Province</option>
+                </select>
+
+                <label for="zip">ZIP code</label>
+                <input type="text" id="zip" name="zip" required>
+
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="additional-info">Additional Information</label>
+                <textarea id="additional-info" name="additional-info"></textarea>
+            </form>
+        </div>
+
+        <div class="placeordersec">
+            <div class="price-details">
+                <p><strong>Asgaard Sofa</strong> x 1</p>
+                <p>Rs. 250,000.00</p>
+            </div>
+            <div class="price-details">
+                <p>Subtotal</p>
+                <p>Rs. 250,000.00</p>
+            </div>
+            <div class="price-details checkout_total">
+                <p>Total</p>
+                <span>Rs. 250,000.00</span>
+            </div>
+            <hr>
+
+            <div class="payment-option">
+                <label>
+                    <input type="radio" name="payment" id="select" checked>
+                    <strong>Direct Bank Transfer</strong>
+                </label>
+                <p class="disabled">Make your payment directly into our bank account. Please use your Order ID as the
+                    payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
+
+                <label class="disabled">
+                    <input type="radio" name="payment" disabled>
+                    Direct Bank Transfer
+                </label>
+                <br>
+                <label class="disabled">
+                    <input type="radio" name="payment" disabled>
+                    Cash On Delivery
+                </label>
+            </div>
+            <p class="privacy">Your personal data will be used to support your experience throughout this website, to
+                manage access to your account, and for other purposes described in our <strong>privacy policy</strong>.
+            </p>
+            <div class="placeorderbutton">
+                <button class="btn_transparent"><a href="checkout.html">Place Order</a></button>
+            </div>
+
+        </div>
+    </div>
+    <!-- Upperfooter Section -->
+    <div class="upperfooter dflex">
+
+        <div class="upperfooter_element dflex">
+            <div class="up_footer_element_img">
+                <img src="img/trophy 1.png" alt="">
+            </div>
+            <div class="up_footer_element_text">
+                <h3>High Quality</h3>
+                <p>crafted from top materials</p>
+            </div>
+        </div>
+
+        <div class="upperfooter_element dflex">
+            <div class="up_footer_element_img">
+                <img src="img/guarantee.png" alt="">
+            </div>
+            <div class="up_footer_element_text">
+                <h3>Warranty Protection</h3>
+                <p>Over 2 years</p>
+            </div>
+        </div>
+
+        <div class="upperfooter_element dflex">
+            <div class="up_footer_element_img">
+                <img src="img/freeshipping.png" alt="">
+            </div>
+            <div class="up_footer_element_text">
+                <h3>Free Shipping</h3>
+                <p>Order over 150 $</p>
+            </div>
+        </div>
+
+        <div class="upperfooter_element dflex">
+            <div class="up_footer_element_img">
+                <img src="img/customer-support.png" alt="">
+            </div>
+            <div class="up_footer_element_text">
+                <h3>24/7 support</h3>
+                <p>Dedicated support</p>
+            </div>
+        </div>
+
+    </div>
+    <!-- Footer section -->
+    <footer>
+        <div class="footer">
+            <div class="footer-address">
+                <h2>Funiro.</h2>
+                <p>400 University Drive Suite 200 Coral Gables,<br>FL 33134 USA</p>
+            </div>
+            <div class="footer-links">
+                <h4>Links</h4>
+                <a href="index.html">Home</a><br>
+                <a href="shop.html">Shop</a><br>
+                <a href="#">About</a><br>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-help">
+                <h4>Help</h4>
+                <a href="#">Payment Options</a><br>
+                <a href="#">Returns</a><br>
+                <a href="#">Privacy Policies</a>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Newsletter</h4>
+                <input type="email" placeholder="Enter Your Email Address">
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> 2023 Funiro. All rights reserved |&copy sksadi</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Furniro Ecommerce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm" method="POST" action="/login">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div id="loginMessage"></div>
+        <div class="signup-link">
+            <p>Don't have an account?</p>
+            <a href="signup.html"><button type="button" class="signup-btn">Sign Up</button></a>
+        </div>
+    </div>
+    <script>
+        // Optional: AJAX login (for better UX)
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const res = await fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            const data = await res.json();
+            document.getElementById('loginMessage').textContent = data.message;
+            if (data.success) {
+                window.location.href = '/'; // Redirect on success
+            }
+        });
+    </script>
+</body>
+</html>
