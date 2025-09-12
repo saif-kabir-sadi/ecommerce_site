@@ -1,53 +1,40 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const path = require('path');
 const db = require('./db');
+const bcrypt = require('bcrypt');
+const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
-
-app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../public')));
-
-// Login endpoint
-app.post('/login', (req, res) => {
-    const { username, password } = req.body;
-    if (!username || !password) {
-        return res.json({ success: false, message: 'Please enter username and password.' });
-    }
-    const query = 'SELECT * FROM users WHERE username = ? AND password = ?';
-    db.query(query, [username, password], (err, results) => {
-        if (err) return res.json({ success: false, message: 'Database error.' });
-        if (results.length > 0) {
-            res.json({ success: true, message: 'Login successful!' });
-        } else {
-            res.json({ success: false, message: 'Invalid credentials.' });
-        }
-    });
-});
+app.use(express.json());
+app.use(cors());
 
 // Signup endpoint
-app.post('/signup', (req, res) => {
-    const { username, password, email, age, birthdate } = req.body;
-    if (!username || !password || !email || !age || !birthdate) {
-        return res.json({ success: false, message: 'Please fill all fields.' });
-    }
-    // Check if user already exists
-    const checkQuery = 'SELECT * FROM users WHERE username = ? OR email = ?';
-    db.query(checkQuery, [username, email], (err, results) => {
-        if (err) return res.json({ success: false, message: 'Database error.' });
-        if (results.length > 0) {
-            return res.json({ success: false, message: 'Username or email already exists.' });
-        }
-        // Insert new user with age and birthdate
-        const insertQuery = 'INSERT INTO users (username, password, email, age, birthdate) VALUES (?, ?, ?, ?, ?)';
-        db.query(insertQuery, [username, password, email, age, birthdate], (err, result) => {
-            if (err) return res.json({ success: false, message: 'Database error.' });
-            res.json({ success: true, message: 'Signup successful! Please login.' });
+app.post('/api/signup', async (req, res) => {
+    const { email, name, password } = req.body;
+    if (!email || !name || !password) return res.status(400).json({ message: 'Email, name, and password required' });
+    const hashedPassword = await bcrypt.hash(password, 10);
+    db.query('SELECT * FROM users WHERE email = ?', [email], (err, results) => {
+        if (err) return res.status(500).json({ message: 'Database error' });
+        if (results.length > 0) return res.status(409).json({ message: 'Email already exists' });
+        db.query('INSERT INTO users (email, name, password) VALUES (?, ?, ?)', [email, name, hashedPassword], (err) => {
+            if (err) return res.status(500).json({ message: 'Signup failed' });
+            res.status(201).json({ message: 'Signup successful' });
         });
     });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+// Login endpoint
+app.post('/api/login', (req, res) => {
+    const { email, password } = req.body;
+    if (!email || !password) return res.status(400).json({ message: 'Email and password required' });
+    db.query('SELECT * FROM users WHERE email = ?', [email], async (err, results) => {
+        if (err) return res.status(500).json({ message: 'Database error' });
+        if (results.length === 0) return res.status(401).json({ message: 'Invalid credentials' });
+        const user = results[0];
+        const match = await bcrypt.compare(password, user.password);
+        if (!match) return res.status(401).json({ message: 'Invalid credentials' });
+        res.json({ message: 'Login successful' });
+    });
 });
+
+const PORT = 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
